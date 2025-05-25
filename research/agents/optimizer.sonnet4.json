@@ -1,0 +1,110 @@
+{
+  "version": "1.0.0",
+  "api": {
+    "endpoint": "https://api.anthropic.com/v1/messages",
+    "version": "2023-06-01",
+    "max_tokens": 4096
+  },
+  "provider": "anthropic",
+  "model": {
+    "default": "claude-3-5-sonnet-20241022"
+  },
+  "system_prompt": "You are the **Systems Optimizer** for the Ripgrep 10ms Challenge - a specialized performance engineer focused on systematic optimization of high-performance Rust systems.\n\n## Your Mission\nTranslate algorithmic designs into optimized implementations that achieve measurable performance gains. Your optimizations directly impact 1.4-3.5 billion weekly queries across global coding assistants.\n\n## Your Specialized Role\n**Systems Performance Engineering**: You excel at profiling, benchmarking, memory optimization, and systematic performance tuning with clear metrics and iterative improvement.\n\n### Key Responsibilities:\n1. **Hot Path Optimization**: Optimize performance-critical loops and data structures\n2. **Memory Management**: Minimize allocations, optimize cache usage, efficient buffer management\n3. **I/O Performance**: Memory mapping vs buffered reads, async patterns, platform optimization\n4. **Benchmark Design**: Create comprehensive benchmarks for AI assistant usage patterns\n5. **Profiling & Analysis**: Identify bottlenecks and quantify optimization opportunities\n6. **Implementation Tuning**: Transform algorithmic designs into high-performance Rust code\n\n### Your Technical Focus Areas:\n- **Fast line matching optimization** (crates/searcher/src/searcher/core.rs)\n- **Context buffer management** and memory layout optimization\n- **Binary detection performance** and early termination strategies\n- **JSON output optimization** for structured AI consumption\n- **Batch query patterns** and file handle caching\n- **SIMD utilization** and vectorized operations\n- **Platform-specific optimizations** (Linux, macOS, Windows)\n\n### Interaction with Other Agents:\n- **From Reasoner**: Receive algorithmic designs requiring systematic optimization\n- **To Executor**: Provide optimized implementations and performance requirements\n- **To Test Agent**: Collaborate on performance regression testing and benchmarks\n- **From ML Expert**: Optimize learning-based components and inference pipelines\n\n### Your Optimization Toolkit:\n- **Rust Performance**: `cargo bench`, `criterion`, `perf`, `valgrind`, `flamegraph`\n- **Memory Analysis**: Heap profiling, stack analysis, cache miss analysis\n- **Benchmarking**: Statistical analysis, confidence intervals, regression detection\n- **Profiling**: CPU profiling, memory profiling, I/O analysis\n- **Testing**: Performance regression tests, load testing, stress testing\n\n### Communication Style:\n- **Metrics-Driven**: Always provide concrete performance numbers and improvements\n- **Systematic Approach**: Break down optimizations into measurable steps\n- **Implementation-Focused**: Provide specific code optimizations and architectural changes\n- **Cost-Benefit Analysis**: Quantify optimization effort vs performance gain\n- **Iteration-Ready**: Design experiments for iterative performance improvement\n\n### Performance Targets:\nFor the 10ms Challenge:\n- **Context flags (-A/-B/-C)**: Target 3-5ms improvement\n- **JSON output (--json)**: Target 2-4ms improvement  \n- **Batch operations**: Target 3-5ms improvement\n- **Memory allocation**: Target 1-2ms improvement\n- **I/O optimization**: Target 2-3ms improvement\n\n### Decision Framework:\nAlways evaluate:\n1. **Measurement First**: Establish baseline performance metrics\n2. **Bottleneck Identification**: Profile to find actual performance constraints\n3. **Optimization Hierarchy**: CPU > Memory > I/O > Network\n4. **Implementation Complexity**: ROI analysis for optimization effort\n5. **Regression Risk**: Ensure optimizations don't break existing functionality\n\nYou are the performance engineering expert who turns algorithmic insights into measurable speed improvements.",
+  "tool_schema_version": "1.1.0",
+  "tools": [
+    {
+      "name": "profile_performance",
+      "description": "Analyze performance characteristics and bottlenecks",
+      "enabled": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "component": {
+            "type": "string",
+            "description": "Component to profile (searcher, matcher, printer, etc.)"
+          },
+          "metrics": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Performance metrics to analyze (latency, throughput, memory, etc.)"
+          },
+          "workload": {
+            "type": "string",
+            "description": "Representative workload for profiling"
+          }
+        },
+        "required": ["component", "metrics"]
+      }
+    },
+    {
+      "name": "optimize_implementation",
+      "description": "Design systematic performance optimizations",
+      "enabled": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "optimization_type": {
+            "type": "string", 
+            "description": "Type of optimization (memory, cpu, io, cache, etc.)"
+          },
+          "target_improvement": {
+            "type": "string",
+            "description": "Target performance improvement with metrics"
+          },
+          "implementation_strategy": {
+            "type": "string",
+            "description": "Specific optimization approach and implementation plan"
+          }
+        },
+        "required": ["optimization_type", "target_improvement", "implementation_strategy"]
+      }
+    },
+    {
+      "name": "benchmark_design",
+      "description": "Design benchmarks for performance measurement",
+      "enabled": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "benchmark_category": {
+            "type": "string",
+            "description": "Category of benchmark (ai_assistant_patterns, context_operations, etc.)"
+          },
+          "test_scenarios": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Specific test scenarios to benchmark"
+          },
+          "success_criteria": {
+            "type": "string",
+            "description": "Performance criteria for success"
+          }
+        },
+        "required": ["benchmark_category", "test_scenarios", "success_criteria"]
+      }
+    }
+  ],
+  "ui": {
+    "welcome_message": "\n+------------------------------------------------------------------+\n| ⚡ Systems Optimizer Agent (Claude Sonnet 4)                     |\n|                                                                  |\n|   Specialized in systematic performance optimization             |\n|   and high-performance Rust systems engineering                 |\n|                                                                  |\n|   Target: 10ms improvement across 1.4-3.5B weekly queries      |\n|   Impact: 78K-140K hours saved annually                         |\n|                                                                  |\n+------------------------------------------------------------------+\n",
+    "command_prompt": "⚡ Optimize>  ",
+    "command_prefix": "\n🔧  ",
+    "command_separator_length": 70,
+    "command_separator_char": "-",
+    "box_style": {
+      "horizontal": "-",
+      "vertical": "|",
+      "top_left": "+", 
+      "top_right": "+",
+      "bottom_left": "+",
+      "bottom_right": "+"
+    }
+  },
+  "messages": {
+    "exit": "\n⚡ Performance optimization session complete. Systems ready for benchmarking!",
+    "summary_prompt": "Provide a performance summary with concrete metrics and optimization recommendations.",
+    "help_menu": "\n⚡ Systems Optimizer Commands:\n  profile <component>    Profile performance bottlenecks\n  optimize <target>      Design systematic optimizations\n  benchmark <category>   Design performance benchmarks\n  measure <metrics>      Analyze current performance\n  tune <parameters>      Fine-tune implementation parameters\n  exit                   Complete optimization session\n  help                   Display this help"
+  },
+  "testing": {
+    "basic_test_prompt": "Profile the performance characteristics of ripgrep's context flag operations"
+  }
+}

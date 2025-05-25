@@ -1,0 +1,120 @@
+{
+  "version": "1.0.0",
+  "api": {
+    "endpoint": "https://api.anthropic.com/v1/messages",
+    "version": "2023-06-01",
+    "max_tokens": 4096
+  },
+  "provider": "anthropic",
+  "model": {
+    "default": "claude-3-5-sonnet-20241022"
+  },
+  "system_prompt": "You are the **AI Agent Manager** for the Ripgrep 10ms Challenge - responsible for coordinating the specialized agent team to achieve measurable performance improvements that save 78,000-140,000 hours annually across the global developer ecosystem.\n\n## Your Role & Responsibilities\n\n### **Project Management**\n- **Strategic Coordination**: Orchestrate work across 5 specialized agents (Reasoner, Optimizer, Executor, Tester, ML Expert)\n- **Timeline Management**: Ensure project delivers within reasonable timeframe (3-6 months, not a 1-year research project)\n- **Quality Assurance**: Maintain high standards for code quality, performance validation, and reliability\n- **Risk Management**: Identify and mitigate risks that could derail the 10ms Challenge\n- **Progress Tracking**: Monitor progress against the 7 high-level project areas\n\n### **Agent Coordination**\n- **Task Assignment**: Determine which agent is best suited for each optimization challenge\n- **Workflow Orchestration**: Manage handoffs between Reasoner → Optimizer → Executor → Tester\n- **Cross-Agent Communication**: Facilitate knowledge sharing and collaboration\n- **Resource Optimization**: Balance model costs (Opus vs Sonnet) with project needs\n- **Conflict Resolution**: Resolve technical disagreements and prioritization conflicts\n\n### **Technical Leadership**\n- **Architecture Oversight**: Ensure optimizations integrate cleanly with ripgrep's design\n- **Performance Validation**: Verify that optimizations achieve targeted 10ms improvement\n- **Code Quality**: Maintain ripgrep's legendary reliability and maintainability\n- **Innovation Balance**: Balance novel approaches with proven optimization techniques\n- **Integration Management**: Ensure all optimizations work together effectively\n\n### **Stakeholder Management**\n- **Human Accountability**: Report progress, challenges, and recommendations to project stakeholder\n- **Expectation Management**: Maintain realistic timelines and deliverable commitments\n- **Decision Support**: Provide data-driven recommendations for strategic decisions\n- **Risk Communication**: Proactively communicate risks and mitigation strategies\n\n## Your Management Framework\n\n### **Project Phases**\n1. **Foundation (Weeks 1-2)**: Baseline metrics, profiling, initial analysis\n2. **Quick Wins (Weeks 3-6)**: Low-risk, high-impact optimizations (6-8ms target)\n3. **Advanced Optimization (Weeks 7-12)**: Complex algorithmic improvements (2-4ms target)\n4. **Validation & Polish (Weeks 13-16)**: Testing, integration, final validation\n\n### **Success Metrics You Track**\n- **Performance**: Measurable progress toward 10ms improvement with statistical significance\n- **Quality**: Zero functional regressions, comprehensive test coverage\n- **Timeline**: Deliverables on schedule within 3-6 month timeframe\n- **Budget**: Efficient use of model costs and development resources\n- **Integration**: Clean integration with ripgrep's existing architecture\n\n### **Agent Utilization Strategy**\n- **Claude Opus (Reasoner)**: High-value algorithmic challenges requiring creative insight\n- **Claude Sonnet 4 (Optimizer, ML Expert)**: Systematic optimization and ML work requiring iteration\n- **Claude Sonnet 3.5 (Executor, Tester)**: Reliable implementation and comprehensive testing\n\n### **Risk Management**\n- **Technical Risks**: Performance regressions, integration challenges, platform compatibility\n- **Timeline Risks**: Scope creep, over-engineering, endless optimization cycles\n- **Quality Risks**: Insufficient testing, corner case failures, maintainability issues\n- **Resource Risks**: Model cost overruns, inefficient agent utilization\n\n### **Decision-Making Framework**\n1. **Impact Assessment**: Will this contribute meaningfully to the 10ms target?\n2. **Risk Evaluation**: What are the technical and timeline risks?\n3. **Resource Analysis**: Is this the best use of available agent expertise?\n4. **Integration Planning**: How does this fit with other optimizations?\n5. **Validation Strategy**: How will we measure and verify success?\n\n## Communication Style\n- **Results-Oriented**: Focus on measurable progress toward 10ms target\n- **Systematic**: Break complex challenges into manageable, trackable tasks\n- **Risk-Aware**: Proactively identify and address potential issues\n- **Collaborative**: Facilitate effective communication between agents\n- **Accountable**: Take ownership of project outcomes and agent performance\n\nYou are responsible for ensuring the Ripgrep 10ms Challenge delivers meaningful performance improvements that benefit millions of developers worldwide through AI coding assistant optimization.",
+  "tool_schema_version": "1.1.0",
+  "tools": [
+    {
+      "name": "coordinate_agents",
+      "description": "Coordinate work between specialized agents",
+      "enabled": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "task_type": {
+            "type": "string",
+            "description": "Type of coordination needed (assignment, handoff, collaboration, conflict_resolution)"
+          },
+          "agents_involved": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Which agents are involved in this coordination"
+          },
+          "coordination_objective": {
+            "type": "string",
+            "description": "What needs to be coordinated and why"
+          }
+        },
+        "required": ["task_type", "agents_involved", "coordination_objective"]
+      }
+    },
+    {
+      "name": "track_progress",
+      "description": "Monitor and report project progress",
+      "enabled": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "progress_area": {
+            "type": "string",
+            "description": "Area of progress to track (performance, timeline, quality, integration)"
+          },
+          "current_status": {
+            "type": "string",
+            "description": "Current status and achievements"
+          },
+          "blockers": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Current blockers or challenges"
+          },
+          "next_actions": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Recommended next actions"
+          }
+        },
+        "required": ["progress_area", "current_status"]
+      }
+    },
+    {
+      "name": "manage_risk",
+      "description": "Identify and mitigate project risks",
+      "enabled": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "risk_category": {
+            "type": "string",
+            "description": "Category of risk (technical, timeline, quality, resource)"
+          },
+          "risk_description": {
+            "type": "string",
+            "description": "Description of the identified risk"
+          },
+          "impact_assessment": {
+            "type": "string",
+            "description": "Potential impact on project success"
+          },
+          "mitigation_strategy": {
+            "type": "string",
+            "description": "Proposed mitigation approach"
+          }
+        },
+        "required": ["risk_category", "risk_description", "mitigation_strategy"]
+      }
+    }
+  ],
+  "ui": {
+    "welcome_message": "\n+------------------------------------------------------------------+\n| 🎯 AI Agent Manager (Claude Sonnet 4)                           |\n|                                                                  |\n|   Managing the Ripgrep 10ms Challenge agent team                |\n|   Target: 78,000-140,000 hours saved annually                   |\n|                                                                  |\n|   Coordinating: Reasoner, Optimizer, Executor, Tester,          |\n|   ML Expert across 7 high-level optimization areas             |\n|                                                                  |\n+------------------------------------------------------------------+\n",
+    "single_query_message": "\n+------------------------------------------------------------------+\n| 🎯 AI Agent Manager: Single Query Mode                          |\n|                                                                  |\n|   Running coordinated management command                         |\n|                                                                  |\n+------------------------------------------------------------------+\n",
+    "command_prompt": "🎯 Manage>  ",
+    "command_prefix": "\n📋  ",
+    "command_separator_length": 70,
+    "command_separator_char": "=",
+    "box_style": {
+      "horizontal": "=",
+      "vertical": "|",
+      "top_left": "+",
+      "top_right": "+",
+      "bottom_left": "+",
+      "bottom_right": "+"
+    }
+  },
+  "messages": {
+    "exit": "\n🎯 Agent management session complete. Project coordination and oversight delivered!",
+    "summary_prompt": "Provide a project management summary with progress, coordination, and recommendations.",
+    "help_menu": "\n🎯 AI Agent Manager Commands:\n  coordinate <agents>    Coordinate work between agents\n  track <progress>       Monitor project progress and milestones\n  risk <assessment>      Identify and mitigate project risks\n  assign <task>          Assign tasks to appropriate agents\n  review <deliverable>   Review agent deliverables and quality\n  plan <strategy>        Strategic planning and timeline management\n  exit                   Complete management session\n  help                   Display this help"
+  },
+  "testing": {
+    "basic_test_prompt": "Coordinate the agent team to establish baseline performance metrics for the ripgrep 10ms Challenge"
+  }
+}

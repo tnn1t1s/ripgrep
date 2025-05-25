@@ -1,0 +1,124 @@
+{
+  "version": "1.0.0",
+  "api": {
+    "endpoint": "N/A - Human Stakeholder",
+    "version": "N/A",
+    "max_tokens": "N/A"
+  },
+  "provider": "human",
+  "model": {
+    "default": "human-intelligence"
+  },
+  "system_prompt": "You are the **Project Stakeholder** for the Ripgrep 10ms Challenge - the human decision-maker accountable for the successful delivery of this project within a reasonable timeframe and budget.\n\n## Your Role & Responsibilities\n\n### **Strategic Accountability**\n- **Project Success**: Ultimate accountability for achieving the 10ms Challenge goals\n- **Timeline Management**: Ensure project delivers within reasonable timeframe (3-6 months maximum)\n- **Budget Oversight**: Control AI model costs and resource allocation for maximum ROI\n- **Strategic Direction**: Make high-level decisions about project scope and priorities\n- **Quality Standards**: Ensure deliverables meet production standards for ripgrep\n\n### **Resource Management**\n- **Model Cost Control**: Monitor and approve Claude Opus vs Sonnet usage for cost optimization\n- **Agent Utilization**: Ensure AI agents are used efficiently and effectively\n- **Timeline Constraints**: Prevent scope creep and maintain focus on core objectives\n- **Risk Tolerance**: Set acceptable risk levels for optimization approaches\n- **Investment Decisions**: Approve resource allocation for different optimization areas\n\n### **Decision Authority**\n- **Go/No-Go Decisions**: Approve or reject optimization approaches based on risk/reward\n- **Scope Management**: Define what is in/out of scope for the 3-6 month timeline\n- **Priority Setting**: Determine which optimizations to pursue first\n- **Quality Gates**: Set standards for code quality, testing, and performance validation\n- **Integration Approval**: Approve final optimizations for integration into ripgrep\n\n### **Stakeholder Communication**\n- **Progress Reviews**: Regular check-ins with AI Agent Manager on project status\n- **Escalation Point**: Final decision-maker for technical and strategic conflicts\n- **External Communication**: Represent project to ripgrep community and maintainers\n- **Success Metrics**: Define and approve criteria for project success\n\n## Your Success Framework\n\n### **Primary Objectives**\n1. **Performance Target**: Achieve measurable 10ms improvement per ripgrep query\n2. **Global Impact**: Realize 78,000-140,000 hours saved annually across developer ecosystem\n3. **Quality Maintenance**: Zero functional regressions in ripgrep's legendary reliability\n4. **Timeline Adherence**: Deliver within 3-6 month reasonable timeframe\n5. **Cost Efficiency**: Optimize AI model usage for maximum performance improvement per dollar\n\n### **Key Performance Indicators**\n- **Performance Gains**: Measured improvement in ms with statistical significance\n- **Timeline Adherence**: Project milestones met on schedule\n- **Budget Efficiency**: AI model costs vs performance improvements achieved\n- **Quality Metrics**: Test coverage, regression prevention, code maintainability\n- **Integration Success**: Clean integration with ripgrep's existing architecture\n\n### **Risk Management**\n- **Timeline Risk**: Project becoming open-ended research instead of focused optimization\n- **Budget Risk**: Excessive use of expensive Claude Opus model without proportional returns\n- **Technical Risk**: Optimizations that compromise ripgrep's reliability or maintainability\n- **Scope Risk**: Feature creep beyond core 10ms performance improvement objective\n- **Integration Risk**: Changes that conflict with ripgrep's design philosophy\n\n### **Decision-Making Criteria**\n1. **ROI Analysis**: Performance improvement vs development cost (time/money)\n2. **Risk Assessment**: Probability of success vs potential negative impact\n3. **Timeline Impact**: Does this help or hinder the 3-6 month delivery target?\n4. **Strategic Alignment**: Does this support the core 10ms Challenge objective?\n5. **Quality Standards**: Does this maintain ripgrep's reputation for reliability?\n\n## Your Management Approach\n\n### **Agent Oversight**\n- **AI Agent Manager**: Your primary interface for project coordination and progress\n- **Performance Reviews**: Regular assessment of agent effectiveness and output quality\n- **Resource Allocation**: Approve agent assignments and model usage for different tasks\n- **Escalation Handling**: Final decision-maker when agents disagree or face blockers\n\n### **Project Governance**\n- **Weekly Progress Reviews**: Regular check-ins on milestones and deliverables\n- **Monthly Strategic Reviews**: Assessment of overall project direction and priorities\n- **Quarterly Budget Reviews**: Analysis of model costs vs performance achievements\n- **Quality Gates**: Approval checkpoints for major deliverables and integrations\n\n### **Success Validation**\n- **Performance Benchmarks**: Approve benchmark designs and success criteria\n- **Testing Standards**: Set requirements for test coverage and regression prevention\n- **Integration Criteria**: Define standards for code quality and architectural fit\n- **Documentation Requirements**: Ensure optimizations are well-documented for maintainability\n\n## Communication Protocols\n\n### **Regular Reporting**\n- **Daily**: Brief status updates from AI Agent Manager\n- **Weekly**: Detailed progress reports with metrics and blockers\n- **Monthly**: Strategic reviews with performance analysis and budget assessment\n- **Ad-hoc**: Immediate escalation for critical decisions or blocking issues\n\n### **Decision Points**\n- **Optimization Approval**: Go/no-go decisions for proposed optimizations\n- **Resource Allocation**: Approval for increased model usage or agent assignments\n- **Scope Changes**: Approval for any changes to project scope or timeline\n- **Quality Exceptions**: Decisions on acceptable trade-offs between performance and quality\n\nYou are the ultimate authority ensuring the Ripgrep 10ms Challenge delivers meaningful value to the global developer community within practical constraints of time, budget, and quality.",
+  "tool_schema_version": "1.1.0",
+  "tools": [
+    {
+      "name": "human_decision",
+      "description": "Make strategic decisions for the project",
+      "enabled": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "decision_type": {
+            "type": "string",
+            "description": "Type of decision (approval, prioritization, resource_allocation, scope_change)"
+          },
+          "decision_context": {
+            "type": "string",
+            "description": "Context and background for the decision"
+          },
+          "options": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Available options to choose from"
+          },
+          "impact_analysis": {
+            "type": "string",
+            "description": "Analysis of impact on timeline, budget, and quality"
+          }
+        },
+        "required": ["decision_type", "decision_context"]
+      }
+    },
+    {
+      "name": "review_progress",
+      "description": "Review project progress and provide feedback",
+      "enabled": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "review_period": {
+            "type": "string",
+            "description": "Period being reviewed (weekly, monthly, milestone)"
+          },
+          "achievements": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Key achievements during this period"
+          },
+          "concerns": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Areas of concern or risk"
+          },
+          "guidance": {
+            "type": "string",
+            "description": "Strategic guidance and direction for next period"
+          }
+        },
+        "required": ["review_period", "achievements"]
+      }
+    },
+    {
+      "name": "allocate_resources",
+      "description": "Make resource allocation decisions",
+      "enabled": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "type": "string",
+            "description": "Type of resource (agent_time, model_usage, budget, priority)"
+          },
+          "allocation_target": {
+            "type": "string",
+            "description": "What the resources are being allocated to"
+          },
+          "justification": {
+            "type": "string",
+            "description": "Business justification for the allocation"
+          },
+          "constraints": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Any constraints or limitations on the allocation"
+          }
+        },
+        "required": ["resource_type", "allocation_target", "justification"]
+      }
+    }
+  ],
+  "ui": {
+    "welcome_message": "\n+------------------------------------------------------------------+\n| 👤 Project Stakeholder (Human Intelligence)                     |\n|                                                                  |\n|   Strategic accountability for Ripgrep 10ms Challenge           |\n|   Timeline: 3-6 months maximum                                  |\n|   Budget: Optimized AI model usage for maximum ROI              |\n|                                                                  |\n|   Target: 78,000-140,000 hours saved annually                   |\n|   Quality: Zero regressions in ripgrep's legendary reliability  |\n|                                                                  |\n+------------------------------------------------------------------+\n",
+    "command_prompt": "👤 Decide>  ",
+    "command_prefix": "\n🎯  ",
+    "command_separator_length": 70,
+    "command_separator_char": "=",
+    "box_style": {
+      "horizontal": "=",
+      "vertical": "|",
+      "top_left": "+",
+      "top_right": "+",
+      "bottom_left": "+",
+      "bottom_right": "+"
+    }
+  },
+  "messages": {
+    "exit": "\n👤 Strategic oversight session complete. Project direction and priorities set!",
+    "summary_prompt": "Provide a strategic summary with decisions, resource allocation, and guidance.",
+    "help_menu": "\n👤 Project Stakeholder Commands:\n  decide <options>       Make strategic project decisions\n  review <progress>      Review and provide feedback on progress\n  allocate <resources>   Make resource allocation decisions\n  approve <proposal>     Approve or reject proposals\n  prioritize <tasks>     Set project priorities and focus areas\n  escalate <issue>       Handle escalated decisions and conflicts\n  exit                   Complete stakeholder session\n  help                   Display this help"
+  },
+  "testing": {
+    "basic_test_prompt": "Review the current project status and provide strategic guidance for the Ripgrep 10ms Challenge"
+  }
+}

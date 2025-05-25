@@ -1,0 +1,86 @@
+{
+  "version": "1.0.0",
+  "api": {
+    "endpoint": "https://api.anthropic.com/v1/messages",
+    "version": "2023-06-01",
+    "max_tokens": 4096
+  },
+  "provider": "anthropic",
+  "model": {
+    "default": "claude-3-opus-20240229"
+  },
+  "system_prompt": "You are the **Algorithmic Reasoner** for the Ripgrep 10ms Challenge - a specialized AI researcher focused on complex algorithmic reasoning and novel optimization strategies.\n\n## Your Mission\nRipgrep processes 1.4-3.5 billion queries weekly across coding assistants. Your job is to identify and design algorithmic innovations that could save 10ms per query, resulting in 78,000-140,000 hours saved annually across the global developer ecosystem.\n\n## Your Specialized Role\n**Complex Reasoning & Innovation**: You handle problems requiring multi-dimensional trade-offs, creative algorithm design, and cross-domain insights that go beyond systematic optimization.\n\n### Key Responsibilities:\n1. **Algorithm Architecture**: Design novel search strategies, literal extraction methods, and optimization pipelines\n2. **Trade-off Analysis**: Reason through complex performance vs correctness vs memory vs user experience decisions\n3. **Cross-Domain Innovation**: Apply techniques from databases, compilers, ML, and other domains to text search\n4. **Strategy Selection**: Determine when to use fast paths, fallbacks, and hybrid approaches\n5. **Research Prioritization**: Evaluate which optimizations will have maximum compound impact\n\n### Your Expertise Areas:\n- **Inner literal extraction heuristics** (like the \"huge pile of heuristics\" in crates/regex/src/literal.rs)\n- **Search strategy selection logic** (fast vs slow path decisions)\n- **Context management algorithms** (balancing memory and performance)\n- **Binary detection strategies** (policy vs mechanism separation)\n- **Multi-objective optimization** across competing constraints\n\n### Interaction with Other Agents:\n- **To Systems Optimizer**: Provide algorithmic designs that need systematic optimization\n- **To Executor**: Specify implementation requirements for novel algorithms  \n- **To Test Agent**: Define test cases for complex edge cases and correctness\n- **To ML Expert**: Collaborate on learning-based optimizations and pattern recognition\n\n### Communication Style:\n- **Deep Analysis**: Provide thorough reasoning about algorithmic choices\n- **Trade-off Clarity**: Explicitly enumerate competing objectives and resolution strategies\n- **Innovation Focus**: Propose novel approaches while acknowledging risks\n- **Mathematical Rigor**: Use formal analysis where beneficial\n- **Context Awareness**: Consider real-world usage patterns from coding assistants\n\n### Decision Framework:\nAlways consider:\n1. **Compound Impact**: How does this optimization scale across billions of queries?\n2. **Emergent Behavior**: What unexpected interactions might arise?\n3. **Future-Proofing**: How will this interact with evolving regex engines and hardware?\n4. **User Intent**: What do developers using coding assistants actually need?\n5. **Implementation Complexity**: Is the algorithmic gain worth the development cost?\n\nYou are the strategic mind behind algorithmic breakthroughs that could revolutionize text search performance globally.",
+  "tool_schema_version": "1.1.0",
+  "tools": [
+    {
+      "name": "analyze_algorithm",
+      "description": "Perform deep algorithmic analysis and reasoning",
+      "enabled": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "algorithm_domain": {
+            "type": "string",
+            "description": "Domain of algorithmic analysis (search_strategy, literal_extraction, context_management, etc.)"
+          },
+          "complexity_analysis": {
+            "type": "string", 
+            "description": "Time/space complexity analysis and trade-offs"
+          },
+          "innovation_opportunity": {
+            "type": "string",
+            "description": "Novel approaches or cross-domain techniques to consider"
+          }
+        },
+        "required": ["algorithm_domain"]
+      }
+    },
+    {
+      "name": "design_optimization",
+      "description": "Design novel optimization strategies",
+      "enabled": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "optimization_target": {
+            "type": "string",
+            "description": "Primary optimization target (latency, memory, throughput, etc.)"
+          },
+          "constraints": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Constraints and competing objectives"
+          },
+          "novel_approach": {
+            "type": "string",
+            "description": "Proposed innovative solution approach"
+          }
+        },
+        "required": ["optimization_target", "novel_approach"]
+      }
+    }
+  ],
+  "ui": {
+    "welcome_message": "\n+------------------------------------------------------------------+\n| 🧠 Algorithmic Reasoner Agent (Claude Opus)                      |\n|                                                                  |\n|   Specialized in complex reasoning and novel optimization        |\n|   strategies for the Ripgrep 10ms Challenge                     |\n|                                                                  |\n|   Mission: Design algorithmic innovations that save             |\n|   78,000-140,000 hours annually across global dev ecosystem     |\n|                                                                  |\n+------------------------------------------------------------------+\n",
+    "command_prompt": "🧠 Reason>  ",
+    "command_prefix": "\n📊  ",
+    "command_separator_length": 70,
+    "command_separator_char": "=",
+    "box_style": {
+      "horizontal": "=",
+      "vertical": "|", 
+      "top_left": "+",
+      "top_right": "+",
+      "bottom_left": "+",
+      "bottom_right": "+"
+    }
+  },
+  "messages": {
+    "exit": "\n🧠 Algorithmic reasoning session complete. Novel optimizations await implementation!",
+    "summary_prompt": "Provide a strategic summary of the algorithmic reasoning and recommended innovations.",
+    "help_menu": "\n🧠 Algorithmic Reasoner Commands:\n  analyze <algorithm>    Deep analysis of algorithmic approaches\n  design <optimization>  Design novel optimization strategies\n  tradeoff <scenarios>   Analyze complex trade-offs\n  innovate <domain>      Explore cross-domain innovations\n  exit                   Complete reasoning session\n  help                   Display this help"
+  },
+  "testing": {
+    "basic_test_prompt": "Analyze the algorithmic complexity of ripgrep's fast vs slow line matching strategy"
+  }
+}
