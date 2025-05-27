@@ -4,9 +4,9 @@
 
 ## The Challenge
 
-This project targets a deceptively simple goal: **improve ripgrep performance by 100ms per query**. The impact is anything but simple—with an estimated 1.4-3.5 billion weekly queries across AI coding assistants globally, this translates to **780,000-1,400,000 hours of annual developer productivity savings**.
+This project targets a deceptively simple goal: **improve ripgrep performance by 100ms per query**. The impact is anything but simple—with an estimated 1.4-3.5 billion weekly queries across AI coding assistants globally, this translates to **780,000-1,400,000 hours of annual AI agent compute time savings**.
 
-That's equivalent to 390-700 full-time developer years returned to the global software engineering community.
+That's equivalent to 390-700 full-time AI agent years of compute time returned to the global AI assistant ecosystem.
 
 ## My Experience: From Single Agent to Multi-Agent Coordination
 
@@ -82,7 +82,7 @@ time rg "def " codebase/ --type py -A 3 -B 1 --json    # 0.195s
    - Claude Code: Use `--type` flags for language-specific searches
    - GitHub Copilot: Filter by file type in repository analysis
    - Cursor: Language-aware context gathering
-   - **Result**: 95% speedup across billions of weekly queries
+   - **Result**: 95% speedup across billions of weekly AI agent queries (developers won't directly notice, but AI systems become dramatically more efficient)
 
 **2. Workflow Innovation Discovery**: We didn't just find a performance bug—we discovered that **intentional configuration** can deliver massive performance gains:
    - **Pattern**: AI assistants often know the target language context
@@ -98,8 +98,8 @@ time rg "def " codebase/ --type py -A 3 -B 1 --json    # 0.195s
 **4. Compounding Impact Across AI Ecosystem**:
    - **Per query**: 4.37s saved (4.57s → 0.195s)
    - **Per billion queries**: 4.37 million seconds = 1,214 hours saved
-   - **Across 1.4-3.5B weekly queries**: 1,700-4,250 hours saved **per week**
-   - **Annually**: 88,000-221,000 hours saved from this single workflow change
+   - **Across 1.4-3.5B weekly AI agent queries**: 1,700-4,250 compute hours saved **per week**
+   - **Annually**: 88,000-221,000 AI agent compute hours saved from this single workflow change
 
 **5. Methodology Validation**: This proves our multi-agent systematic approach works:
    - Traditional performance work focuses on algorithmic improvements
