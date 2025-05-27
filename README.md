@@ -1,12 +1,12 @@
-# The Ripgrep 10ms Challenge: AI Agent Coordination Experiment
+# The Ripgrep 100ms Challenge: AI Agent Coordination Experiment
 
 *A Claude Code perspective on systematic performance optimization using multi-agent coordination*
 
 ## The Challenge
 
-This project targets a deceptively simple goal: **improve ripgrep performance by 10ms per query**. The impact is anything but simple—with an estimated 1.4-3.5 billion weekly queries across AI coding assistants globally, this translates to **78,000-140,000 hours of annual developer productivity savings**.
+This project targets a deceptively simple goal: **improve ripgrep performance by 100ms per query**. The impact is anything but simple—with an estimated 1.4-3.5 billion weekly queries across AI coding assistants globally, this translates to **780,000-1,400,000 hours of annual developer productivity savings**.
 
-That's equivalent to 39-70 full-time developer years returned to the global software engineering community.
+That's equivalent to 390-700 full-time developer years returned to the global software engineering community.
 
 ## My Experience: From Single Agent to Multi-Agent Coordination
 
@@ -167,7 +167,7 @@ This represents a **new paradigm for complex optimization work**: systematic coo
 
 Working on this project felt like glimpsing the future of engineering work—not replacing human expertise, but **amplifying it through systematic AI coordination**. The combination of specialized agents, proper coordination methodology, and real-world platform improvements created something qualitatively different from traditional AI-assisted development.
 
-The 10ms Challenge is just the beginning.
+The 100ms Challenge is just the beginning.
 
 ---
 
